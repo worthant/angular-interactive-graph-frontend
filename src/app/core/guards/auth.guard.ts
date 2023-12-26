@@ -14,7 +14,7 @@ class PermissionsService {
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         const isAuthenticated = this.authService.isAuthenticated();
         if (!isAuthenticated) {
-            this.router.navigate(['/login']);
+            this.router.navigate(['/user-login']);
         }
         return isAuthenticated;
     }
