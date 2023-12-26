@@ -13,7 +13,7 @@ export class WelcomeComponent {
     constructor(private router: Router, private themeService: ThemeService) {}
 
     navigateTologin() {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/user-login']);
     }
 
     toggleTheme() {
