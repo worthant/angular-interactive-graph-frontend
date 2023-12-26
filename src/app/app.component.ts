@@ -13,8 +13,7 @@ export class AppComponent implements OnInit {
     title = 'angular-interactive-graph-frontend';
 
     ngOnInit() {
-        // const theme = localStorage.getItem('theme');
-        const theme = 'dark';
+        const theme = localStorage.getItem('theme');
         if (theme) {
             document.documentElement.classList.add(theme);
         } else {
