@@ -9,4 +9,18 @@ export class ThemeService {
         document.documentElement.classList.add(newTheme);
         localStorage.setItem('theme', newTheme);
     }
+
+    getCurrentTheme() {
+        let theme = localStorage.getItem('theme');
+        if (!theme) {
+            theme = 'dark';
+            localStorage.setItem('theme', theme);
+        }
+        return theme;
+    }
+
+    initTheme() {
+        const theme = this.getCurrentTheme();
+        document.documentElement.classList.add(theme);
+    }
 }

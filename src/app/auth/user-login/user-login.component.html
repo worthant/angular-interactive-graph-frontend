@@ -1,1 +1,53 @@
-<p>user-login works!</p>
+<div class="dark:bg-zinc-950 flex justify-center items-center h-screen">
+    <div class="container dark:bg-custom-dark bg-white rounded-3xl dark:shadow-symmetric dark:shadow-gray-700 shadow-symmetric-xl relative overflow-hidden w-[768px] max-w-full min-h-[480px]"
+        [class.active]="isActive">
+        <div class="form-container sign-up">
+            <form>
+                <app-dark-mode-toggle class="justify-self-center self-center"></app-dark-mode-toggle>
+                <h1 class="dark:text-white">Create Account</h1>
+                <div class="social-icons">
+                    <a href="_" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+                    <a href="_" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+                    <a href="_" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+                    <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+                </div>
+                <span class="dark:text-white">or use your email for registeration</span>
+                <input [(ngModel)]="username" type="text" placeholder="Name" name="username">
+                <input [(ngModel)]="email" type="email" placeholder="Email" name="email">
+                <input [(ngModel)]="password" type="password" placeholder="Password" name="password">
+                <button (click)="signUp()">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <app-dark-mode-toggle class="justify-self-center self-center"></app-dark-mode-toggle>
+                <h1 class="dark:text-white">Sign In</h1>
+                <div class="social-icons">
+                    <a href="_" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+                    <a href="_" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+                    <a href="_" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+                    <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+                </div>
+                <span class="dark:text-white">or use your email password</span>
+                <input [(ngModel)]="email" type="email" placeholder="Email" name="email">
+                <input [(ngModel)]="password" type="password" placeholder="Password" name="password">
+                <a href="_" class="dark:invert">Forget Your Password?</a>
+                <button (click)="signIn()">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button (click)="toggleActive()">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="toggleSignUp" (click)="toggleActive()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+@mixin button-main {
+    @apply hover:bg-sky-600 transition duration-300;
+    @apply dark:bg-teal-500 dark:hover:bg-teal-700 bg-sky-550;
+    @apply shadow-sm;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    @apply mt-3;
+    @apply cursor-pointer;
+}
+
+@mixin button-welcome {
+    @apply hover:bg-sky-700 transition duration-300;
+    @apply dark:bg-teal-500 dark:hover:bg-teal-700 bg-sky-500;
+    @apply shadow-sm;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    @apply mt-3;
+    @apply cursor-pointer;
+}
+
+
+.bg-sky-550 {
+    --tw-bg-opacity: 1;
+    background-color: #1ba4e3;
+}
+
+@mixin button-hidden {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+@mixin toggle-sign-up {
+    @apply hover:bg-cyan-600 hover:border-solid bg-cyan-500;
+}
+

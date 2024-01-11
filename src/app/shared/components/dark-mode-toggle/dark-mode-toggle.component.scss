@@ -1,0 +1,17 @@
+.toggle {
+    .block {
+        @apply w-7 h-5; // Adjust width and height as needed
+        border: 1px solid; // Border color is set by border-gray-900 and dark:border-white
+        @apply rounded-full; // This maintains the rounded ends of the switch track
+    }
+
+    .dot {
+        @apply absolute w-3 h-3; // Make the dot slightly larger
+        @apply left-1 top-1; // Position it within the track
+        @apply rounded-full transition; // Make sure it's rounded and transitions smoothly
+    }
+
+    input:checked~.dot {
+        transform: translateX(1rem); // Adjust this value based on the new width of the .block
+    }
+}
