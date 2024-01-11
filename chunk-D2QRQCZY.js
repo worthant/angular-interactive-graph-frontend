@@ -1,1 +1,0 @@
-import{$ as r,Cb as e,T as o}from"./chunk-RUEHZXMV.js";var f=(()=>{let t=class t{};t.\u0275fac=function(m){return new(m||t)},t.\u0275mod=r({type:t}),t.\u0275inj=o({imports:[e]});let i=t;return i})();export{f as PrivateModule};
