@@ -5,6 +5,8 @@ import { ApiService } from '../../core/services/api.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DarkModeToggleComponent } from "../../shared/components/dark-mode-toggle/dark-mode-toggle.component";
+import { Router } from '@angular/router';
+import { TokenService } from '../../core/services/token.service';
 
 @Component({
     selector: 'app-user-login',
@@ -18,7 +20,7 @@ export class UserLoginComponent {
     username: string = '';
     email: string = '';
     password: string = '';
-    
+
     // Animation
     isActive: boolean = false;
 
@@ -27,19 +29,52 @@ export class UserLoginComponent {
     faFacebookF = faFacebookF;
     faGithub = faGithub;
     faLinkedinIn = faLinkedinIn;
-    
-    constructor(private apiService: ApiService) {}
+
+    constructor(
+        private apiService: ApiService,
+        private router: Router,
+        private tokenService: TokenService,
+    ) { }
 
     toggleActive(): void {
         this.isActive = !this.isActive;
     }
 
     signUp() {
-        // signUp logic
+        const signUpData = {
+            username: this.username,
+            email: this.email,
+            password: this.password
+        };
+
+        this.apiService.signup(signUpData).subscribe({
+            next: (resp:any) => {
+                this.tokenService.saveToken(resp.token);
+                this.router.navigate(['/dashboard']);
+            },
+            error: (err) => {
+                // TODO: handle errors user-friendly
+                console.error(err);
+            }
+        })
     }
 
     signIn() {
-        // signIn logic
+        const loginData = {
+            email: this.email,
+            password: this.password
+        };
+
+        this.apiService.login(loginData).subscribe({
+            next: (resp:any) => {
+                this.tokenService.saveToken(resp.token);
+                this.router.navigate(['/dashboard']);
+            },
+            error: (err) => {
+                // TODO: handle errors user-friendly
+                console.error(err);
+            }
+        })
     }
 
 }

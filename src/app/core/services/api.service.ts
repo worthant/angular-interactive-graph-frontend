@@ -5,20 +5,20 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root',
 })
 export class ApiService {
-    private apiUrl = 'https://delicate-corgi-brightly.ngrok-free.app/api/auth';
+    private apiUrl = 'https://delicate-corgi-brightly.ngrok-free.app/api';
 
     constructor(private http: HttpClient) {}
 
     signup(data: any) {
-        return this.http.post(`${this.apiUrl}/signup`, data);
+        return this.http.post(`${this.apiUrl}/auth/signup`, data);
     }
 
     login(data: any) {
-        return this.http.post(`${this.apiUrl}/login`, data);
+        return this.http.post(`${this.apiUrl}/auth/login`, data);
     }
 
     logout() {
-        return this.http.post(`${this.apiUrl}/logout`, {});
+        return this.http.post(`${this.apiUrl}/auth/logout`, {});
     }
 
     // TODO: check this logic
