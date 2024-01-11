@@ -9,15 +9,10 @@ angular-interactive-graph-frontend/
 └── src/
     ├── app/
     │   ├── auth/
-    │   │   ├── login/
-    │   │   │   ├── login.component.html
-    │   │   │   ├── login.component.scss
-    │   │   │   └── login.component.ts
-    │   │   │
-    │   │   ├── signup/
-    │   │   │   ├── signup.component.html
-    │   │   │   ├── signup.component.scss
-    │   │   │   └── signup.component.ts
+    │   │   ├── user-login/
+    │   │   │   ├── user-login.component.html
+    │   │   │   ├── user-login.component.scss
+    │   │   │   └── user-login.component.ts
     │   │   │
     │   │   └── admin-login/
     │   │       ├── admin-login.component.html
@@ -45,10 +40,15 @@ angular-interactive-graph-frontend/
     │   │   │   │   ├── navbar.component.scss
     │   │   │   │   └── navbar.component.ts
     │   │   │   │
-    │   │   │   └── footer/
-    │   │   │       ├── footer.component.html
-    │   │   │       ├── footer.component.scss
-    │   │   │       └── footer.component.ts
+    │   │   │   ├── footer/
+    │   │   │   │   ├── footer.component.html
+    │   │   │   │   ├── footer.component.scss
+    │   │   │   │   └── footer.component.ts
+    │   │   │   │
+    │   │   │   └── dark-mode-toggle/
+    │   │   │       ├── dark-mode-toggle.component.html
+    │   │   │       ├── dark-mode-toggle.component.scss
+    │   │   │       └── dark-mode-toggle.component.ts
     │   │   │
     │   │   └── utils/
     │   │       └── error-handler.ts
