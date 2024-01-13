@@ -3,17 +3,19 @@ import { faGooglePlusG, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ApiService } from '../../core/services/api.service';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { DarkModeToggleComponent } from "../../shared/components/dark-mode-toggle/dark-mode-toggle.component";
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { DarkModeToggleComponent } from '../../shared/components/dark-mode-toggle/dark-mode-toggle.component';
 import { Router } from '@angular/router';
 import { TokenService } from '../../core/services/token.service';
+import { AuthResponse } from '../../core/models/auth-response.model';
+import { ErrorHandlerService } from '../../core/services/error-handler.service';
 
 @Component({
     selector: 'app-user-login',
     standalone: true,
     templateUrl: './user-login.component.html',
     styleUrls: ['./user-login.component.scss'],
-    imports: [FontAwesomeModule, FormsModule, HttpClientModule, DarkModeToggleComponent]
+    imports: [FontAwesomeModule, FormsModule, HttpClientModule, DarkModeToggleComponent],
 })
 export class UserLoginComponent {
     // Forms
@@ -34,7 +36,8 @@ export class UserLoginComponent {
         private apiService: ApiService,
         private router: Router,
         private tokenService: TokenService,
-    ) { }
+        private errorHandlerService: ErrorHandlerService
+    ) {}
 
     toggleActive(): void {
         this.isActive = !this.isActive;
@@ -44,37 +47,30 @@ export class UserLoginComponent {
         const signUpData = {
             username: this.username,
             email: this.email,
-            password: this.password
+            password: this.password,
         };
 
-        this.apiService.signup(signUpData).subscribe({
-            next: (resp:any) => {
+        this.apiService.signUp(signUpData).subscribe({
+            next: (resp: AuthResponse) => {
                 this.tokenService.saveToken(resp.token);
                 this.router.navigate(['/dashboard']);
             },
-            error: (err) => {
-                // TODO: handle errors user-friendly
-                console.error(err);
-            }
-        })
+            error: err => this.errorHandlerService.handleError(err),
+        });
     }
 
     signIn() {
-        const loginData = {
+        const signData = {
             email: this.email,
-            password: this.password
+            password: this.password,
         };
 
-        this.apiService.login(loginData).subscribe({
-            next: (resp:any) => {
+        this.apiService.signIn(signData).subscribe({
+            next: (resp: AuthResponse) => {
                 this.tokenService.saveToken(resp.token);
                 this.router.navigate(['/dashboard']);
             },
-            error: (err) => {
-                // TODO: handle errors user-friendly
-                console.error(err);
-            }
-        })
+            error: err => this.errorHandlerService.handleError(err),
+        });
     }
-
 }

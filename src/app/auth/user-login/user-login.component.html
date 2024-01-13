@@ -1,6 +1,8 @@
 <div class="dark:bg-zinc-950 flex justify-center items-center h-screen">
-    <div class="container dark:bg-custom-dark bg-white rounded-3xl dark:shadow-symmetric dark:shadow-gray-700 shadow-symmetric-xl relative overflow-hidden w-[768px] max-w-full min-h-[480px]"
-        [class.active]="isActive">
+    <div
+        class="container dark:bg-custom-dark bg-white rounded-3xl dark:shadow-symmetric dark:shadow-gray-700 shadow-symmetric-xl relative overflow-hidden w-[768px] max-w-full min-h-[480px]"
+        [class.active]="isActive"
+    >
         <div class="form-container sign-up">
             <form>
                 <app-dark-mode-toggle class="justify-self-center self-center"></app-dark-mode-toggle>
@@ -12,9 +14,9 @@
                     <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
                 </div>
                 <span class="dark:text-white">or use your email for registeration</span>
-                <input [(ngModel)]="username" type="text" placeholder="Name" name="username">
-                <input [(ngModel)]="email" type="email" placeholder="Email" name="email">
-                <input [(ngModel)]="password" type="password" placeholder="Password" name="password">
+                <input [(ngModel)]="username" type="text" placeholder="Name" name="username" />
+                <input [(ngModel)]="email" type="email" placeholder="Email" name="email" />
+                <input [(ngModel)]="password" type="password" placeholder="Password" name="password" />
                 <button (click)="signUp()">Sign Up</button>
             </form>
         </div>
@@ -29,8 +31,8 @@
                     <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
                 </div>
                 <span class="dark:text-white">or use your email password</span>
-                <input [(ngModel)]="email" type="email" placeholder="Email" name="email">
-                <input [(ngModel)]="password" type="password" placeholder="Password" name="password">
+                <input [(ngModel)]="email" type="email" placeholder="Email" name="email" />
+                <input [(ngModel)]="password" type="password" placeholder="Password" name="password" />
                 <a href="_" class="dark:invert">Forget Your Password?</a>
                 <button (click)="signIn()">Sign In</button>
             </form>

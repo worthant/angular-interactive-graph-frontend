@@ -3,3 +3,36 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.multiline-snackbar {
+    white-space: pre-line; // This allows line breaks
+}
+
+.mat-mdc-snack-bar-container {
+    &.snackbar-dark-theme {
+        --mat-mdc-snack-bar-button-color: #fff;
+        --mdc-snackbar-supporting-text-color: #fff;
+        --mat-snack-bar-button-color: rgb(20, 184, 166);
+    }
+
+    &.snackbar-light-theme {
+        --mdc-snackbar-container-color: #2196f3;
+        --mat-mdc-snack-bar-button-color: #fff;
+        --mdc-snackbar-supporting-text-color: #fff;
+        --mat-snack-bar-button-color: #fff;
+    }
+
+    .mat-mdc-simple-snack-bar {
+        gap: 1rem;
+    }
+}
