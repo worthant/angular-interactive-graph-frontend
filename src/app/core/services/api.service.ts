@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthResponse } from '../models/auth-response.model';
 import { SigninRequest } from '../models/signin-request.model';
 import { SignupRequest } from '../models/signup-request.model';
+import { RestoreRequest } from '../models/restore-request';
 
 @Injectable({
     providedIn: 'root',
@@ -23,6 +24,11 @@ export class ApiService {
 
     logout() {
         return this.http.post(`${this.apiUrl}/auth/logout`, {});
+    }
+
+    restorePassword(data: RestoreRequest) {
+        console.log("restore request!");
+        return this.http.post(`${this.apiUrl}/auth/restorePassword`, data);
     }
 
     // TODO: check this logic

@@ -10,17 +10,36 @@ export class ErrorHandlerService {
     constructor(
         private snackBar: MatSnackBar,
         private themeService: ThemeService
-    ) {}
+    ) { }
 
     public handleError(error: any): void {
-        if (error instanceof HttpErrorResponse) {
-            if (error.status === 400 && error.error && typeof error.error === 'object') {
-                this.processValidationErrors(error.error.errorMessage);
-            } else {
-                this.showErrorSnackBar('The fucking helios is down again');
-            }
-        } else {
+        if (error.error instanceof ErrorEvent) {
+            // Client-side or network error
             this.showErrorSnackBar('An unexpected error occurred.');
+        } else if (error) {
+            // Backend returned an unsuccessful response code
+            switch (error.status) {
+                case 400: // Bad Request
+                    this.processValidationErrors(error.error.errorMessage);
+                    break;
+                case 401: // Unauthorized
+                    this.showErrorSnackBar('Authentication failed: ' + error.error);
+                    break;
+                case 404: // Not Found
+                    this.showErrorSnackBar('Resource not found.');
+                    break;
+                case 409: // Conflict
+                    this.showErrorSnackBar('Conflict: ' + error.error);
+                    break;
+                case 500: // Internal Server Error
+                    this.showErrorSnackBar('Internal server error.');
+                    break;
+                default:
+                    if (error.status != 200) {
+                        this.showErrorSnackBar('The fucking helios is down again');
+                    }
+                    break;
+            }
         }
     }
 
