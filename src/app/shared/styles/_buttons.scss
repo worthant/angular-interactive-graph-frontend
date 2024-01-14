@@ -41,7 +41,9 @@
     border-color: #fff;
 }
 
-@mixin toggle-sign-up {
-    @apply hover:bg-cyan-600 hover:border-solid bg-cyan-500;
+@mixin toggle-btn {
+    @apply hover:bg-cyan-600 bg-cyan-500;
+    @apply shadow-lg;
+    @apply hover:border-4 hover:border-zinc-100 hover:border-opacity-80;
 }
 
