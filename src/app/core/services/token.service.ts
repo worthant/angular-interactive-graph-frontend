@@ -18,8 +18,6 @@ export class TokenService {
     removeToken() {
         localStorage.removeItem(this.tokenKey);
     }
-    
-    // TODO: normal validation of the token
 
     isTokenExpired(): boolean {
         const token = this.getToken();

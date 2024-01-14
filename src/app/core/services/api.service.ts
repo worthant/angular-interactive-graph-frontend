@@ -30,6 +30,4 @@ export class ApiService {
         console.log("restore request!");
         return this.http.post(`${this.apiUrl}/auth/restorePassword`, data);
     }
-
-    // TODO: check this logic
 }
