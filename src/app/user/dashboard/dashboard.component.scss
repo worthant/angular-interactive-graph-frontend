@@ -1,0 +1,16 @@
+.navbar-logo {
+    height: 3.5rem; /* Adjust as per your requirement */
+    width: auto; /* Maintain aspect ratio */
+}
+
+@media (prefers-color-scheme: dark) {
+    .navbar-logo {
+        background-color: #1f2937; /* bg-gray-800 */
+        filter: invert(200%); /* White icon */
+    }
+}
+
+nav {
+    
+}
+
