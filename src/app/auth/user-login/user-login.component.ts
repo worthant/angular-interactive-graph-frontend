@@ -7,7 +7,7 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-import { DarkModeToggleComponent } from '../../shared/components/dark-mode-toggle/dark-mode-toggle.component';
+import { DarkModeToggleComponent } from '../../shared/components/dark-mode-toggle-slider/dark-mode-toggle.component';
 import { Router } from '@angular/router';
 import { TokenService } from '../../core/services/token.service';
 import { AuthResponse } from '../../core/models/auth-response.model';
@@ -69,7 +69,17 @@ export class UserLoginComponent {
         private tokenService: TokenService,
         private errorHandlerService: ErrorHandlerService,
         private dialog: MatDialog
-    ) {}
+    ) {
+        this.loadCredentials();
+    }
+
+    loadCredentials() {
+        const credentials = this.tokenService.getCredentials();
+        if (credentials) {
+            this.email = credentials.email;
+            this.password = credentials.password;
+        }
+    }
 
     toggleActive(): void {
         this.isActive = !this.isActive;
@@ -85,7 +95,8 @@ export class UserLoginComponent {
         this.apiService.signUp(signUpData).subscribe({
             next: (resp: AuthResponse) => {
                 this.tokenService.saveToken(resp.token);
-                this.router.navigate(['/dashboard']);
+                console.log(resp.token);
+                this.router.navigate(['/main/dashboard']);
             },
             error: err => this.errorHandlerService.handleError(err),
         });
@@ -100,7 +111,8 @@ export class UserLoginComponent {
         this.apiService.signIn(signData).subscribe({
             next: (resp: AuthResponse) => {
                 this.tokenService.saveToken(resp.token);
-                this.router.navigate(['/dashboard']);
+                this.tokenService.saveCredentials(this.email, this.password);
+                this.router.navigate(['/main/dashboard']);
             },
             error: err => this.errorHandlerService.handleError(err),
         });

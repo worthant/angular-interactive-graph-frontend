@@ -1,101 +1,102 @@
-<div class="dark:bg-zinc-900 flex justify-center items-center h-screen">
-    <div
-        class="container dark:bg-custom-dark bg-white rounded-3xl dark:shadow-symmetric dark:shadow-custom-dark shadow-symmetric-xl relative overflow-hidden w-[768px] max-w-full min-h-[480px]"
-        [class.active]="isActive"
-    >
-        <div class="form-container sign-up">
-            <form [formGroup]="signUpForm">
-                <app-dark-mode-toggle class="justify-self-center self-center"></app-dark-mode-toggle>
-                <div class="social-icons">
-                    <h1 class="dark:text-white">Create Account</h1>
-                    <!-- <a href="_" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+<!-- <div class="bg-gradient-to-r from-sky-300 via-white to-sky-300"> -->
+<div class="">
+    <div class="dark:bg-zinc-900 flex justify-center items-center h-screen">
+        <div class="container dark:bg-custom-dark bg-white rounded-3xl dark:shadow-symmetric dark:shadow-custom-dark shadow-symmetric-xl relative overflow-hidden w-[768px] max-w-full min-h-[480px]"
+            [class.active]="isActive">
+            <div class="form-container sign-up">
+                <form [formGroup]="signUpForm">
+                    <app-dark-mode-toggle class="justify-self-center self-center"></app-dark-mode-toggle>
+                    <div class="social-icons">
+                        <h1 class="dark:text-white">Create Account</h1>
+                        <!-- <a href="_" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
                     <a href="_" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a> -->
-                    <a href="_" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
-                    <!-- <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a> -->
-                </div>
-                <span class="dark:text-white">or use your email for registeration</span>
+                        <a href="_" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+                        <!-- <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a> -->
+                    </div>
+                    <span class="dark:text-white">or use your email for registeration</span>
 
-                <!-- Username -->
-                <mat-form-field appearance="outline" class="mb-4">
-                    <input matInput placeholder="Username" formControlName="username" [(ngModel)]="username"/>
-                    <mat-error *ngIf="signUpForm.get('username')?.errors?.['required']"
-                        >Username cannot be empty
-                    </mat-error>
-                    <mat-error *ngIf="signUpForm.get('username')?.errors?.['minlength']"
-                        >Username >= 3 characters long</mat-error
-                    >
-                    <mat-error *ngIf="signUpForm.get('username')?.errors?.['maxlength']"
-                        >Username <= 20 characters long</mat-error
-                    >
-                    <mat-error *ngIf="signUpForm.get('username')?.errors?.['pattern']">
-                        Must be alphanumeric with "_"
-                    </mat-error>
-                </mat-form-field>
+                    <!-- Username -->
+                    <mat-form-field appearance="outline" class="mb-4">
+                        <input matInput placeholder="Username" formControlName="username" [(ngModel)]="username" />
+                        <mat-error *ngIf="signUpForm.get('username')?.errors?.['required']">Username cannot be empty
+                        </mat-error>
+                        <mat-error *ngIf="signUpForm.get('username')?.errors?.['minlength']">Username >= 3 characters
+                            long</mat-error>
+                        <mat-error *ngIf="signUpForm.get('username')?.errors?.['maxlength']">Username <= 20 characters
+                                long</mat-error>
+                                <mat-error *ngIf="signUpForm.get('username')?.errors?.['pattern']">
+                                    Must be alphanumeric with "_"
+                                </mat-error>
+                    </mat-form-field>
 
-                <!-- Email Input -->
-                <mat-form-field appearance="outline" class="mb-4">
-                    <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" />
-                    <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required</mat-error>
-                    <mat-error *ngIf="signUpForm.get('email')?.errors?.['email']">Email must be valid</mat-error>
-                </mat-form-field>
+                    <!-- Email Input -->
+                    <mat-form-field appearance="outline" class="mb-4">
+                        <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" />
+                        <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required</mat-error>
+                        <mat-error *ngIf="signUpForm.get('email')?.errors?.['email']">Email must be valid</mat-error>
+                    </mat-form-field>
 
-                <!-- Password Input -->
-                <mat-form-field appearance="outline" class="mb-4">
-                    <input matInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="password"/>
-                    <mat-error *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required</mat-error>
-                    <mat-error *ngIf="signUpForm.get('password')?.errors?.['minlength']"
-                        >Password must be >= 8 characters long</mat-error
-                    >
-                </mat-form-field>
+                    <!-- Password Input -->
+                    <mat-form-field appearance="outline" class="mb-4">
+                        <input matInput type="password" placeholder="Password" formControlName="password"
+                            [(ngModel)]="password" />
+                        <mat-error *ngIf="signUpForm.get('password')?.errors?.['required']">Password is
+                            required</mat-error>
+                        <mat-error *ngIf="signUpForm.get('password')?.errors?.['minlength']">Password must be >= 8
+                            characters long</mat-error>
+                    </mat-form-field>
 
-                <!-- Submit Button -->
-                <button (click)="signUp()" [disabled]="!signUpForm.valid">Sign Up</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form [formGroup]="signInForm">
-                <app-dark-mode-toggle class="justify-self-center self-center"></app-dark-mode-toggle>
-                <div class="social-icons">
-                    <h1 class="dark:text-white">Sign In</h1>
-                    <!-- <a href="_" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+                    <!-- Submit Button -->
+                    <button (click)="signUp()" [disabled]="!signUpForm.valid">Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in">
+                <form [formGroup]="signInForm">
+                    <app-dark-mode-toggle class="justify-self-center self-center"></app-dark-mode-toggle>
+                    <div class="social-icons">
+                        <h1 class="dark:text-white">Sign In</h1>
+                        <!-- <a href="_" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
                     <a href="_" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a> -->
-                    <a href="_" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
-                    <!-- <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a> -->
-                </div>
-                <span class="dark:text-white">or use your email and password</span>
-                <!-- Email Input -->
-                <mat-form-field appearance="outline" class="mb-4">
-                    <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" />
-                    <mat-error *ngIf="signInForm.get('email')?.errors?.['required']">Email is required</mat-error>
-                    <mat-error *ngIf="signInForm.get('email')?.errors?.['email']">Email must be valid</mat-error>
-                </mat-form-field>
+                        <a href="_" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+                        <!-- <a href="_" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a> -->
+                    </div>
+                    <span class="dark:text-white">or use your email and password</span>
+                    <!-- Email Input -->
+                    <mat-form-field appearance="outline" class="mb-4">
+                        <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" />
+                        <mat-error *ngIf="signInForm.get('email')?.errors?.['required']">Email is required</mat-error>
+                        <mat-error *ngIf="signInForm.get('email')?.errors?.['email']">Email must be valid</mat-error>
+                    </mat-form-field>
 
-                <!-- Password Input -->
-                <mat-form-field appearance="outline" class="mb-2">
-                    <input matInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="password" />
-                    <mat-error *ngIf="signInForm.get('password')?.errors?.['required']">Password is required</mat-error>
-                    <mat-error *ngIf="signInForm.get('password')?.errors?.['minlength']"
-                        >Password must be >= 8 characters long</mat-error
-                    >
-                </mat-form-field>
+                    <!-- Password Input -->
+                    <mat-form-field appearance="outline" class="mb-2">
+                        <input matInput type="password" placeholder="Password" formControlName="password"
+                            [(ngModel)]="password" />
+                        <mat-error *ngIf="signInForm.get('password')?.errors?.['required']">Password is
+                            required</mat-error>
+                        <mat-error *ngIf="signInForm.get('password')?.errors?.['minlength']">Password must be >= 8
+                            characters long</mat-error>
+                    </mat-form-field>
 
-                <a (click)="restorePassword()" class="dark:invert forget hover:text-gray-50">Forget Your Password?</a>
+                    <a (click)="restorePassword()" class="dark:invert forget hover:text-gray-50">Forget Your
+                        Password?</a>
 
-                <!-- Submit Button -->
-                <button (click)="signIn()" [disabled]="!signInForm.valid">Sign In</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="toggleBtn" (click)="toggleActive()">Sign In</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register with your personal details to use all of site features</p>
-                    <button class="toggleBtn" (click)="toggleActive()">Sign Up</button>
+                    <!-- Submit Button -->
+                    <button (click)="signIn()" [disabled]="!signInForm.valid">Sign In</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Enter your personal details to use all of site features</p>
+                        <button class="toggleBtn" (click)="toggleActive()">Sign In</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Register with your personal details to use all of site features</p>
+                        <button class="toggleBtn" (click)="toggleActive()">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>

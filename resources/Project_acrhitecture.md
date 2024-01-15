@@ -8,6 +8,13 @@ angular-interactive-graph-frontend/
 │
 └── src/
     ├── app/
+    │   ├── layouts/
+    │   │   ├── main-layout/
+    │   │   │   ├── main-layout.component.html
+    │   │   │   ├── main-layout.component.scss
+    │   │   │   └── main-layout.component.ts
+    │   │   └── ... (other layouts if needed)
+    │   │
     │   ├── auth/
     │   │   ├── user-login/
     │   │   │   ├── user-login.component.html
@@ -35,23 +42,28 @@ angular-interactive-graph-frontend/
     │   │
     │   ├── shared/
     │   │   ├── components/
+    │   │   │   ├── password-reset-dialog/
+    │   │   │   │   ├── password-reset-dialog.component.html
+    │   │   │   │   ├── password-reset-dialog.component.scss
+    │   │   │   │   └── password-reset-dialog.component.ts
+    │   │   │   │
     │   │   │   ├── navbar/
     │   │   │   │   ├── navbar.component.html
     │   │   │   │   ├── navbar.component.scss
     │   │   │   │   └── navbar.component.ts
     │   │   │   │
-    │   │   │   ├── footer/
-    │   │   │   │   ├── footer.component.html
-    │   │   │   │   ├── footer.component.scss
-    │   │   │   │   └── footer.component.ts
+    │   │   │   ├── sidebar/
+    │   │   │   │   ├── sidebar.component.html
+    │   │   │   │   ├── sidebar.component.scss
+    │   │   │   │   └── sidebar.component.ts
     │   │   │   │
     │   │   │   └── dark-mode-toggle/
     │   │   │       ├── dark-mode-toggle.component.html
     │   │   │       ├── dark-mode-toggle.component.scss
     │   │   │       └── dark-mode-toggle.component.ts
     │   │   │
-    │   │   └── utils/
-    │   │       └── error-handler.ts
+    │   │   └── styles/
+    │   │       └── _buttons.scss
     │   │
     │   ├── user/
     │   │   ├── dashboard/
@@ -91,14 +103,11 @@ angular-interactive-graph-frontend/
     │       └── welcome.component.ts
     │
     ├── assets/
-    │   └── ...
+    |   ├── icons.png
+    │   └── graphify-logos.png
     │
-    ├── environments/
-    │   ├── environment.prod.ts
-    │   └── environment.ts
-    │
-    ├── styles/
-    │   └── ...
-    │
+    ├── styles.scss
+    ├── main.ts
+    ├── favicon.ico
     └── index.html
 ```

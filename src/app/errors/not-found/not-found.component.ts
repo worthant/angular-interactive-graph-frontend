@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
     styleUrl: './not-found.component.scss',
 })
 export class NotFoundComponent {
-navigateBack() {
-throw new Error('Method not implemented.');
-}
     constructor(private router: Router) {}
 
     navigateToWelcomePage() {

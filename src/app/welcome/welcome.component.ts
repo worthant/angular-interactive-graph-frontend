@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ThemeService } from '../core/services/theme.service';
-import { DarkModeToggleComponent } from '../shared/components/dark-mode-toggle/dark-mode-toggle.component';
+import { DarkModeToggleComponent } from '../shared/components/dark-mode-toggle-slider/dark-mode-toggle.component';
 
 @Component({
     selector: 'app-welcome',

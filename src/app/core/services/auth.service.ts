@@ -9,6 +9,6 @@ export class AuthService {
 
     isAuthenticated(): boolean {
         const token = this.tokenService.getToken();
-        return !!token && !this.tokenService.isTokenExpired;
+        return !!token && !this.tokenService.isTokenExpired();
     }
 }

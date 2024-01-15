@@ -37,6 +37,8 @@ export class TokenService {
         return false;
     }
 
+    // TODO: Add a method to calculate token expiration time
+
 
     // Decoded by hand for fun, not using it for production obviously :)
     decodeToken(token: string) {
@@ -47,5 +49,22 @@ export class TokenService {
         }).join(''));
 
         return JSON.parse(jsonPayload);
+    }
+
+    saveCredentials(email: string, password: string) {
+        const credentials = { email, password };
+        localStorage.setItem('credentials', JSON.stringify(credentials));
+    }
+    
+    getCredentials(): { email: string, password: string } | null {
+        const credentialsJSON = localStorage.getItem('credentials');
+        if (credentialsJSON) {
+            return JSON.parse(credentialsJSON);
+        }
+        return null;
+    }
+    
+    clearCredentials() {
+        localStorage.removeItem('credentials');
     }
 }

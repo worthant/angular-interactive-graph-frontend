@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ThemeService } from './core/services/theme.service';
+import { initFlowbite } from 'flowbite';
 
 @Component({
     selector: 'app-root',
@@ -18,5 +19,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.themeService.initTheme();
+        initFlowbite();
     }
 }
