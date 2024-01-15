@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --configuration production --base-href / && npx gh-pages -d dist/browser",
+    "deploy": "ng build --configuration production --base-href / && cp dist/browser/index.html dist/browser/404.html && cp resources/CNAME dist/browser/  && npx gh-pages -d dist/browser",
     "lint": "ng lint --fix"
   },
   "private": true,

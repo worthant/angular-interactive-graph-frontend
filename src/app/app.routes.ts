@@ -12,6 +12,7 @@ import { CanvasComponent } from './user/canvas/canvas.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { DocumentationComponent } from './user/documentation/documentation.component';
 import { HelpComponent } from './user/help/help.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 export const routes: Routes = [
     { path: '', component: WelcomeComponent },
@@ -34,6 +35,10 @@ export const routes: Routes = [
 ];
 
 @NgModule({
+    providers: [{
+        provide: LocationStrategy,
+        useClass: HashLocationStrategy
+    }],
     imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule],
 })
