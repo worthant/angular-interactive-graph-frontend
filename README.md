@@ -22,7 +22,7 @@
 
    <!-- New Badge for Angular -->
    <a aria-label="Angular" href="https://angular.io/">
-   <img alt="" src="https://img.shields.io/badge/Angular-4FD1C5?style=for-the-badge&logo=angular&labelColor=000000&color=4FD1C5">
+   <img alt="" src="https://img.shields.io/badge/Angular-17-4FD1C5?style=for-the-badge&logo=angular&labelColor=000000&color=4FD1C5">
 </a>
 
   <a aria-label="Yarn version" href="https://yarnpkg.com/">
