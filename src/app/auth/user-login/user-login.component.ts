@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DarkModeToggleComponent } from '../../shared/components/dark-mode-toggle-slider/dark-mode-toggle.component';
 import { Router } from '@angular/router';
 import { TokenService } from '../../core/services/token.service';
-import { AuthResponse } from '../../core/models/auth-response.model';
+import { JwtDTO } from '../../core/dto/jwt.dto';
 import { ErrorHandlerService } from '../../core/services/error-handler.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PasswordResetDialogComponent } from '../../shared/components/password-reset-dialog/password-reset-dialog.component';
@@ -93,7 +93,7 @@ export class UserLoginComponent {
         };
 
         this.apiService.signUp(signUpData).subscribe({
-            next: (resp: AuthResponse) => {
+            next: (resp: JwtDTO) => {
                 this.tokenService.saveToken(resp.token);
                 console.log(resp.token);
                 this.router.navigate(['/main/dashboard']);
@@ -109,7 +109,7 @@ export class UserLoginComponent {
         };
 
         this.apiService.signIn(signData).subscribe({
-            next: (resp: AuthResponse) => {
+            next: (resp: JwtDTO) => {
                 this.tokenService.saveToken(resp.token);
                 this.tokenService.saveCredentials(this.email, this.password);
                 this.router.navigate(['/main/dashboard']);
@@ -120,5 +120,11 @@ export class UserLoginComponent {
 
     restorePassword() {
         this.dialog.open(PasswordResetDialogComponent);
-      }
+    }
+
+    hireMe() {
+        this.errorHandlerService.showErrorSnackBar(
+            "Hire me and i will implement this feature!) \n Like bro are you fr, what do you expect?"
+            , 8000);
+    }
 }

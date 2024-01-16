@@ -37,6 +37,26 @@ export class TokenService {
         return false;
     }
 
+    howMuchTillTokenExpired(): number {
+        const token = this.getToken();
+        if (!token) return 0;
+        try {
+            const decoded = jwtDecode(token);
+            const now = Date.now().valueOf() / 1000;
+            // Check if the token has expired
+            if (typeof decoded.exp === 'undefined') {
+                return 0;
+            } else if (decoded.exp > now) {
+                return decoded.exp - now;
+            } else {
+                return 0;
+            }
+        } catch (error) {
+            // In case of an error decoding, consider the token expired
+            return 0;
+        }
+    }
+
     // TODO: Add a method to calculate token expiration time
 
 

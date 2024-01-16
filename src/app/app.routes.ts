@@ -13,6 +13,9 @@ import { SettingsComponent } from './user/settings/settings.component';
 import { DocumentationComponent } from './user/documentation/documentation.component';
 import { HelpComponent } from './user/help/help.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminDocumentationComponent } from './admin/admin-documentation/admin-documentation.component';
 
 export const routes: Routes = [
     { path: '', component: WelcomeComponent },
@@ -26,11 +29,20 @@ export const routes: Routes = [
             { path: 'canvas', component: CanvasComponent },
             { path: 'dashboard', component: DashboardComponent },
             { path: 'settings', component: SettingsComponent },
-            { path: 'documentation', component: DocumentationComponent},
+            { path: 'documentation', component: DocumentationComponent },
             { path: 'help', component: HelpComponent }
         ]
     },
-    { path: 'admin-console', component: AdminConsoleComponent, canActivate: [AuthGuard] },
+    {
+        path: 'admin-console',
+        component: AdminConsoleComponent,
+        canActivate: [AuthGuard],
+        children: [
+            { path: 'users', component: AdminUsersComponent },
+            { path: 'dashboard', component: AdminDashboardComponent },
+            { path: 'documentation', component: AdminDocumentationComponent },
+        ]
+    },
     { path: '**', component: NotFoundComponent },
 ];
 

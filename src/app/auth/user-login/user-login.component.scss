@@ -282,8 +282,8 @@ input[type="password"]:focus {
 @media (max-width: 640px) {
 
     .container {
-        @apply mx-2;
-        height: 98%;
+        @apply mx-5;
+        height: 95%;
     }
 
     .form-container {
@@ -369,7 +369,7 @@ input[type="password"]:focus {
 
 @media (min-height: 700px) and (max-height: 950px) {
     .container {
-        @apply mx-2;
+        @apply mx-5;
         height: 80%;
     }
 }

@@ -43,7 +43,7 @@ export class ErrorHandlerService {
         }
     }
 
-    private processValidationErrors(errorMessages: string): void {
+    public processValidationErrors(errorMessages: string): void {
         const messages = errorMessages
             .split(',')
             .map(msg => `• ${msg.replace(/[\w\.]+:/, '').trim()}`)
@@ -55,7 +55,7 @@ export class ErrorHandlerService {
         }
     }
 
-    private showErrorSnackBar(message: string, duration: number = 3000): void {
+    public showErrorSnackBar(message: string, duration: number = 3000): void {
         const themeClass =
             this.themeService.getCurrentTheme() === 'dark' ? 'snackbar-dark-theme' : 'snackbar-light-theme';
         this.snackBar.open(message, 'Close', {

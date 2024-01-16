@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import '../../shared/styles/buttons';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .bg-custom-light {
+        background-color: rgb(130 135 93);
+    }
+
+    .bg-custom-dark {
+        @apply bg-black;
+    }
+
+    .input-custom-dark {
+        background-color: #2B2A33;
+    }
+
+    .border-custom-dark {
+        border-color: rgb(32, 38, 41);
+    }
+
+    .dark .ui-slider {
+        background-color: #101416;
+    }
+
+    .dark .ui-slider .ui-slider-range {
+        @apply bg-yellow-500;
+    }
+
+    .dark .ui-slider .ui-slider-handle {
+        background-color: #101416;
+        background-image: none;
+        @apply border-yellow-500;
+    }
+
+    .table-cell {
+        @apply border border-white dark:border-custom-dark px-2 xl:px-10 py-2 text-center justify-center items-center;
+    }
+
+    .hit {
+        @apply text-green-500 dark:text-green-900;
+        @apply inline-block;
+    }
+
+    .miss {
+        @apply text-red-500 dark:text-red-900;
+    }
+
+    .btn {
+        @apply h-10 w-10 p-2 rounded-xl bg-blue-500 hover:bg-blue-700 text-white;
+        @apply dark:bg-gray-900 dark:text-yellow-300 dark:hover:bg-gray-600;
+    }
+
+    .pressed {
+        @apply bg-white text-black;
+    }
+
+    .graph {
+        @apply min-w-0 w-full xl:w-auto h-auto rounded-md;
+    }
+
+    .input-form {
+        @apply backdrop-brightness-90 flex flex-col justify-center gap-4 overflow-auto rounded-xl;
+        @apply border border-white dark:border-custom-dark shadow-md;
+        @apply p-4 xl:p-10 md:p-6 sm:p-6;
+    }
+
+    .input-text {
+        @apply text-black mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none;
+        @apply focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300;
+        @apply dark:text-white dark:bg-custom-dark dark:border-custom-dark;
+        @apply dark:focus:ring-custom-dark dark:focus:border-custom-dark;
+    }
+
+
+    .submit-btn {
+        @apply w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 focus:outline-none;
+        @apply focus:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300;
+        @apply dark:bg-gray-900 dark:text-yellow-300 dark:hover:bg-gray-600;
+    }
+
+    .column {
+        @apply text-center px-10 py-2 dark:text-white text-black;
+    }
+
+    .data-table {
+        @apply w-full border-collapse dark:text-white text-black;
+    }
+
+    .goToIndex {
+        @apply btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-xl transform;
+        @apply hover:scale-110 transition-transform duration-300;
+    }
+
+    .btn-home {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #fff;
+        color: #333;
+        border-radius: 5px;
+        text-decoration: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s, color 0.3s;
+        @apply dark:border-custom-dark dark:bg-black dark:text-gray-400;
+    }
+
+    .btn-home:hover {
+        background: #f8f8f8;
+        color: #000;
+    }
+
+    .parallax-section {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 500px;
+        /* Adjust as needed */
+    }
+
+    .content-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .custom-grid-sm {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .graph-custom-grid-sm {
+        grid-template-columns: 10fr 1fr 10fr;
+    }
+}
+
+@media (max-width: 370px) {
+    .table-cell {
+        @apply px-0;
+        min-width: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .parallax-section {
+        background-attachment: scroll;
+        /* Disable fixed background for better performance on mobile */
+    }
+}
+
+html {
+    @apply scroll-smooth;
+}
+
+:host ::ng-deep {
+    .mdc-text-field--outlined {
+        --mdc-outlined-text-field-container-shape: 0.8rem;
+    }
+
+    .mat-mdc-text-field-wrapper {
+        @apply h-10;
+    }
+
+    .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+        @apply py-2;
+    }
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+        @apply dark:border-yellow-300 border-black;
+    }
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+        @apply dark:border-yellow-300 border-sky-500;
+    }
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+        @apply dark:border-yellow-300 border-sky-500;
+    }
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input {
+        @apply caret-sky-500 dark:caret-yellow-300;
+    }
+
+    .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+        @apply dark:text-white dark:border-white;
+    }
+
+    .mdc-label {
+        @apply dark:text-white;
+    }
+}
+
+label {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+    @apply text-black;
+}
+
+input {
+    --placeHolder-color: white;
+}
+
+input::placeholder {
+    color: var(--placeHolder-color);
+}
+
+input::-webkit-input-placeholder {
+    /* Edge */
+    color: var(--placeHolder-color);
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: var(--placeHolder-color);
+}
+
+input:-moz-placeholder {
+    color: var(--placeHolder-color);
+}
+
+input::-moz-placeholder {
+    color: var(--placeHolder-color);
+}
+
+canvas {
+    @apply dark:invert-0 invert;
+}
